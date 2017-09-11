@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "mocha",
+      "chai"
+    ],
+    "lib": [
+      "dom",
+      "es2017",
+      "esnext.asynciterable"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
