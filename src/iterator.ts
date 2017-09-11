@@ -2,8 +2,8 @@ import * as levelup from 'levelup';
 
 import { LevelAsyncIterable } from './_level-async-iterator';
 
-function iterator<K=any, V=any, TGetOptions=any>
-  (options?: TGetOptions): LevelAsyncIterable<K, V> {
+function iterator<K=any, V=any, TIteratorOptions=any>
+  (options?: TIteratorOptions): LevelAsyncIterable<K, V> {
   let opts = Object.assign({ keys: true, values: true }, options);
 
   let iter = this._db.iterator(opts);

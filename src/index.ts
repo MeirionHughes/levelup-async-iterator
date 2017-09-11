@@ -7,8 +7,8 @@ levelup.prototype.iterator = iterator;
 
 declare global {
   namespace Level {
-    export interface UP<TKey, TValue, TOptions, TPutOptions, TGetOptions, TDeleteOptions, TBatchOptions> {
-      iterator(options?: TGetOptions): LevelAsyncIterable<TKey, TValue>
+    export interface UP<TKey, TValue, TOptions, TPutOptions, TGetOptions, TDeleteOptions, TBatchOptions, TIteratorOptions> {
+      iterator(options?: TIteratorOptions): LevelAsyncIterable<TKey, TValue>
     }
   }
 }
