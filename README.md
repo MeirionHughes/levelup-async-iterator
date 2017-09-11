@@ -1,6 +1,6 @@
-# Level Async Iterator 
+# LevelUP Async Iterator 
 
-add a `iterator` method to `levelup` that returns a `[Symbol.asyncIterator]` compatible iterable.  
+adds an `iterator` method to the `levelup` prototype that returns a `[Symbol.asyncIterator]` compatible iterator.  
 
 _this is an experimental package_
 
@@ -29,4 +29,4 @@ main();
 
 <a name="open"></a>
 ### iterator([options])
-<code>db.iterator()</code> creates a iterator from the underlying store. the <code>options</code> parameter is the same as what you'd use for <code>db.get()</code>
+<code>db.iterator()</code> creates a iterator from the underlying store. the <code>options</code> parameter is the same as what you'd use for createReadStream
