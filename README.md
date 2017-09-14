@@ -1,6 +1,6 @@
 # LevelUP Async Iterator 
 
-adds an `iterator` method to the `levelup` prototype that returns a `[Symbol.asyncIterator]` compatible iterator.  
+adds `iterator()` to `levelup` that returns a `this._db.iterator(options)` plus an injected `[Symbol.asyncIterator]` property
 
 _this is an experimental package_
 
@@ -15,11 +15,17 @@ import * as encode from 'encoding-down';
 let db = levelup(encode(leveldown('./db')));
 
 async function main() {
-  await db.put("hello", "world");
+  await db.put("a", "John");
+  await db.put("b", "James");
+  await db.put("c", "Janet");
+  await db.put("d", "Joseph");
 
-  let iter = db.iterator();
+  let iter = db.iterator();  
 
   for await (let [key, value] of iter) {
+    if(key === "a"){
+      iter.it.seek("c");
+    }
     console.log(key, value);
   }
 }

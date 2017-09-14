@@ -5,23 +5,21 @@ import * as encode from 'encoding-down';
 import * as Abstract from 'abstract-leveldown';
 import { linq } from 'pipeline-linq';
 
-type Options = leveldown.LevelDownOptions;
-
-let opts: Options = {
-  createIfMissing: true,
-}
-
-let down = leveldown('./db');
-let db = levelup(encode(down), opts);
+let db = levelup(encode(leveldown('./db')));
 
 async function main() {
   await db.put("a", "John");
-  await db.put("b", "Doe");
+  await db.put("b", "James");
+  await db.put("c", "Janet");
+  await db.put("d", "Joseph");
 
-  let iter = db.iterator();
+  let iter = db.iterator();  
 
-  for await (let item of iter) {
-    console.log(item);
+  for await (let [key, value] of iter) {
+    if(key === "a"){
+      iter.it.seek("c");
+    }
+    console.log(key, value);
   }
 }
 

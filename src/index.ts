@@ -1,5 +1,6 @@
 import "core-js/modules/es7.symbol.async-iterator";
 import * as levelup from 'levelup';
+import * as Abstract from 'abstract-leveldown';
 
 async function* iterable() {
   while (true) {
@@ -30,7 +31,7 @@ levelup.prototype.iterator = function (options) {
 declare global {
   namespace Level {
     export interface UP<TKey, TValue, TOptions, TPutOptions, TGetOptions, TDeleteOptions, TIteratorOptions, TBatchOptions> {
-      iterator(options?: TIteratorOptions): AsyncIterable<[TKey, TValue]>
+      iterator(options?: TIteratorOptions): AsyncIterable<[TKey, TValue]> & Abstract.Iterator
     }
   }
 }
