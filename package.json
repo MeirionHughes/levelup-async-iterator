@@ -1,5 +1,10 @@
 {
   "name": "levelup-async-iterator",
+  "author": {
+    "name": "Meirion Hughes",
+    "email": "crakinshot@yahoo.com",
+    "url": "https://github.com/MeirionHughes"
+  },
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
