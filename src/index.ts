@@ -1,4 +1,3 @@
-import "core-js/modules/es7.symbol.async-iterator";
 import * as levelup from 'levelup';
 import * as Abstract from 'abstract-leveldown';
 
