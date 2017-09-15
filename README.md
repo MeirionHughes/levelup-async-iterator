@@ -39,6 +39,14 @@ async function main() {
 main();
 ```
 
+output: 
+```
+D:\Code\levelup-async-iterator>ts-node example
+a John
+c Janet
+d Joseph
+```
+
 <a name="open"></a>
 ### iterator([options])
 <code>db.iterator()</code> creates a iterator from the underlying store. the <code>options</code> parameter is the same as what you'd use for createReadStream
