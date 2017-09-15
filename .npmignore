@@ -1,0 +1,10 @@
+.npmignore
+node_modules/
+db/
+.nyc_output/
+coverage/
+yarn.lock
+circle.yml
+tsconfig*
+src/
+test/
