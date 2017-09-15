@@ -10,6 +10,8 @@ _this is an experimental package_
 
 ## Usage
 
+import/require `levelup-async-iterator` on app entry; 
+
 ```ts
 import 'levelup-async-iterator';
 import * as levelup from 'levelup';
