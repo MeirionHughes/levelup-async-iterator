@@ -1,28 +1,14 @@
+import "core-js/modules/es7.symbol.async-iterator";
 import * as levelup from 'levelup';
 import * as Abstract from 'abstract-leveldown';
 
-async function* iterable() {
-  while (true) {
-    const next = await new Promise<any>((r, x) => {
-      this.next(function (err, key, value) {
-        if (err) x(err);
-        r([key, value]);
-      });
-    });
-    if (next[0] === undefined && next[1] === undefined) {
-      break;
-    }
-    yield next;
-  }
-}
-
-iterable.prototype[Symbol.asyncIterator] = iterable;
+import iterator from './iterator';
 
 levelup.prototype.iterator = function (options) {
   let opts = Object.assign({ keys: true, values: true }, options);
   let iter = this._db.iterator(opts);
 
-  iter[Symbol.asyncIterator] = iterable.bind(iter);
+  iter[Symbol.asyncIterator] = iterator.bind(iter);
 
   return iter;
 }

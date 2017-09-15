@@ -5,12 +5,15 @@
     "email": "crakinshot@yahoo.com",
     "url": "https://github.com/MeirionHughes"
   },
+  "main": "./dist/index.js",
+  "typings" : "./dist/index.d.ts",
   "devDependencies": {
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.43",
     "@types/node": "^8.0.28",
     "abstract-leveldown": "^2.7.0",
     "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
     "encoding-down": "^2.2.1",
     "mocha": "^3.5.2",
     "nyc": "^11.2.1",
@@ -19,10 +22,12 @@
     "typescript": "^2.5.2"
   },
   "dependencies": {
-    "levelup": "^2.0.0"
+    "levelup": "^2.0.0",
+    "core-js": "^2.5.1"
   },
   "scripts": {
-    "test": "nyc node_modules/mocha/bin/_mocha --require source-map-support/register --compilers ts:ts-node/register test/*.ts"
+    "test": "nyc node_modules/mocha/bin/_mocha --require source-map-support/register --compilers ts:ts-node/register test/*.ts",
+    "build": "tsc --project tsconfig.build.json --rootDir src/ --outDir ./dist "
   },
   "nyc": {
     "exclude": [

@@ -1,8 +1,12 @@
 # LevelUP Async Iterator 
 
-adds `iterator()` to `levelup` that returns a `this._db.iterator(options)` plus an injected `[Symbol.asyncIterator]` property
+<img alt="LevelDB Logo" height="100" src="http://leveldb.org/img/logo.svg">
+
+adds `iterator()` to `levelup` that returns `this._db.iterator(options)` plus an injected `[Symbol.asyncIterator]` property
 
 _this is an experimental package_
+
+`'levelup-async-iterator >= 1.0.0'` will use native async iteration when it lands in nodejs proper. For now, the async generator is compiled down and `Symbol.asyncIterator` is polyfilled via `core-js`;
 
 ## Usage
 
