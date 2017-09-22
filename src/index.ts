@@ -1,4 +1,7 @@
-import "core-js/modules/es7.symbol.async-iterator";
+// issue #1 #2
+// https://github.com/Microsoft/TypeScript/issues/14151#issuecomment-280812617
+(<any>Symbol).asyncIterator = Symbol.asyncIterator || Symbol.for('Symbol.asyncIterator')
+
 import * as levelup from 'levelup';
 import * as Abstract from 'abstract-leveldown';
 
