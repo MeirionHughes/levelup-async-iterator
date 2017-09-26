@@ -42,7 +42,7 @@ describe("LevelUP Async Iterator", () => {
       result.push(item);
     }
 
-    expect(result[0]).to.eql(["foo", "bar"]);
-    expect(result[1]).to.eql(["ray", "may"]);
+    expect(result[0]).to.eql({key:"foo", value:"bar"});
+    expect(result[1]).to.eql({key:"ray", value:"may"});
   });
 });

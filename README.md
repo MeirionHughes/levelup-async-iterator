@@ -4,11 +4,13 @@
 
 adds `iterator()` to `levelup` that returns `this._db.iterator(options)` plus an injected `[Symbol.asyncIterator]` property
 
-_this is an experimental package_
-
-`'levelup-async-iterator >= 1.0.0'` will use native async iteration when it lands in nodejs proper. For now, the async generator is compiled down and `Symbol.asyncIterator` is polyfilled via `core-js`;
-
 ## Usage
+
+_this package **requires** that the host system support async-iteration. Currently for node 8.x, this requires running your application with:_ 
+
+```
+node --harmony_async_iteration example.js
+``` 
 
 import/require `levelup-async-iterator` on app entry; 
 

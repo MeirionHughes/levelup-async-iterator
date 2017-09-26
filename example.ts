@@ -14,7 +14,7 @@ async function main() {
 
   let iter = db.iterator();
 
-  for await (let [key, value] of iter) {
+  for await (let {key, value} of iter) {
     if (key === "a") {
       iter.it.seek("c");
     }
