@@ -8,10 +8,12 @@ if (Symbol.asyncIterator === undefined) {
 
 levelup.prototype.iterator = function (options) {
   let opts = Object.assign({ keys: true, values: true }, options);
-  let iter = this._db.iterator(opts);
+  let iter = this._db.iterator(opts)
 
-  iter[Symbol.asyncIterator] = function () { 
-    return iterator(iter)[Symbol.asyncIterator](); 
+  if (iter[Symbol.asyncIterator] === undefined) {
+    iter[Symbol.asyncIterator] = function () {
+      return iterator(iter)[Symbol.asyncIterator]();
+    }
   }
   
   return iter;
