@@ -1,6 +1,6 @@
 {
   "name": "levelup-async-iterator",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "expose iterator with injected [Symbol.asyncIterator]",
   "author": {
     "name": "Meirion Hughes",
