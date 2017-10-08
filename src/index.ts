@@ -1,6 +1,6 @@
-import * as levelup from 'levelup';
-import * as Abstract from 'abstract-leveldown';
+import levelup from 'levelup';
 import iterator from './iterator';
+import {AbstractIterator, AbstractIteratorOptions} from 'abstract-leveldown';
 
 if (Symbol.asyncIterator === undefined) {
   throw Error("this system does not support async-iteration");
@@ -22,7 +22,7 @@ levelup.prototype.iterator = function (options) {
 declare global {
   namespace Level {
     export interface UP<K, V, O, PO, GO, DO, IO, BO, TB> {
-      iterator(options?: IO & levelup.ReadStreamOptions<K>): AsyncIterable<{ key: K, value: V }> & Abstract.Iterator<K, V>
+      iterator(options?: IO & AbstractIteratorOptions<K>): AsyncIterable<{ key: K, value: V }> & AbstractIterator<K, V>
     }
   }
 }

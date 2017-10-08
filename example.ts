@@ -1,8 +1,7 @@
 import './src';
-import * as levelup from 'levelup';
-import * as leveldown from 'leveldown';
-import * as encode from 'encoding-down';
-import * as Abstract from 'abstract-leveldown';
+import levelup from 'levelup';
+import leveldown from 'leveldown';
+import encode from 'encoding-down';
 
 let db = levelup(encode(leveldown('./db')));
 
